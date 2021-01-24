@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+export const appRoutes: Routes = [
+  {
+    path: 'some-page',
+    loadChildren: () => import('./some/some.module').then(m => m.SomeModule),
+  },
+  {
+    path: 'another-page',
+    loadChildren: () => import('./some/some.module').then(m => m.SomeModule),
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'another-page',
+  }
+];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled'
-})],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const AppRoutes = RouterModule.forRoot(appRoutes, {
+  initialNavigation: 'disabled',
+  onSameUrlNavigation: 'ignore',
+  relativeLinkResolution: 'legacy',
+  enableTracing: false,
+});

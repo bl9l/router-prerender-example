@@ -3,3 +3,9 @@
 <p>
   {{ 'EXAMPLE.TRANSLATION' | translate }}
 </p>
+
+<a [routerLink]="['/some-page'] | localize">Go to some page</a>
+<br>
+<a [routerLink]="['/another-page'] | localize">Go to another page</a>
+
+<router-outlet></router-outlet>

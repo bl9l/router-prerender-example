@@ -1,5 +1,9 @@
 {
   "EXAMPLE": {
-    "TRANSLATION" : "Test"
+    "TRANSLATION" : "Test translation"
+  },
+  "ROUTES": {
+    "some-page": "some-page-localized",
+    "another-page": "another-page-localized"
   }
 }
